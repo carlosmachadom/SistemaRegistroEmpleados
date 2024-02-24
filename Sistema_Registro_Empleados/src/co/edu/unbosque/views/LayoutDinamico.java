@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 public class LayoutDinamico extends JPanel {
 	private CardLayout layout;		
 	private Dashboard dashboard;
+	private FormularioCrearEmpleado formularioNuevoEmpleado;
 
 	public LayoutDinamico() {
 		layout = new CardLayout();		
@@ -13,8 +14,11 @@ public class LayoutDinamico extends JPanel {
 		this.setVisible(true);
 		
 		dashboard = new Dashboard();
+		formularioNuevoEmpleado = new FormularioCrearEmpleado();
+		
 		
 		this.add(dashboard, "Dashboard");
+		this.add(formularioNuevoEmpleado, "CrearNuevoEmpleado");
 		mostrarVista("Dashboard");
 	}
 

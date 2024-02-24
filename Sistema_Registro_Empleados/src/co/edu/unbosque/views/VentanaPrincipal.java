@@ -6,14 +6,8 @@ import javax.swing.*;
 import co.edu.unbosque.model.Personal;
 
 public class VentanaPrincipal extends JFrame{	
-	// Comunicación entre la UI y el controlador para los eventos
-	private UIAdapter adaptador;
-	
 	// Creación de contenedor y layout que intercambie ventanas dependiendo lo necesario
 	private LayoutDinamico layout;
-	
-	// Data para dashboard
-	private Personal personalData;
 	
 	public VentanaPrincipal() {		
 		this.setTitle("Sistema de gestión Empleados");

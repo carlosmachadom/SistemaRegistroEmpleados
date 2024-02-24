@@ -22,10 +22,13 @@ public class UIAdapter implements ActionListener {
 	
 	// Botones dashboard
 	private JButton crearNuevoEmpleado;
-	private JComboBox seleccionarLista;
+	private JComboBox<String> seleccionarLista;
 	
 	// Tabla dashboard
 	private TablaGeneral tablaDashboard;
+	
+	// Formulario Crear Empleado
+	private FormularioCrearEmpleado formularioNuevoEmpleado;
 	
 	public UIAdapter() {
 		controlador = new Controller();
@@ -58,6 +61,7 @@ public class UIAdapter implements ActionListener {
 			insertarTabla();
 			break;
 		case "CrearNuevoEmpleado":
+			vistaVentana.getLayoutDinamico().mostrarVista(c);
 			break;
 		}
 	}
