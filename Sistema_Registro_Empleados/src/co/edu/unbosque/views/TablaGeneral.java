@@ -28,8 +28,7 @@ public class TablaGeneral extends JPanel{
 		insertarPanelCabecera();
 		contenido = new JPanel();		
 		contenido.setBorder(new EmptyBorder(0,0,0,0));
-		this.add(contenido, BorderLayout.CENTER);
-		
+		this.add(contenido, BorderLayout.CENTER);		
 	}
 	
 	public void insertarPanelCabecera() {

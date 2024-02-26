@@ -8,6 +8,7 @@ public class IngenieroSenior extends EmpleadoFijo {
 			String direccion, String fechaIngreso, String genero, int ventas) {
 		super(nombre, apellido, cedula, fechaDeNacimiento, telefono, correo, direccion, fechaIngreso, genero);
 		this.ventas = ventas;
+		calcularBonoEspecifico();
 	}
 
 	public void realizarVenta(int ventas) {

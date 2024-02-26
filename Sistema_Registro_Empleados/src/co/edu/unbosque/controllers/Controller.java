@@ -51,7 +51,8 @@ public class Controller {
 				"mcdario0223@gmail.com", 
 				"Cra26#65-44",
 				"2021-08-02",
-				"M");
+				"M",
+				2);
 		
 		crearNuevoEmpleadoFreelance(
 				"Amelia", 
@@ -62,7 +63,8 @@ public class Controller {
 				"mcdario0223@gmail.com", 
 				"Cra26#65-44",
 				"2021-08-02",
-				"M");
+				"M",
+				3);
 		
 		// Empleados técnicos
 		crearNuevoEmpleadoTecnico(
@@ -168,7 +170,8 @@ public class Controller {
 			String correo,
 			String direccion, 
 			String fechaIngreso, 
-			String genero) {
+			String genero,
+			int clientesCaptados) {
 		
 		EmpleadoFreelance freelance = fabricaEmpleados.crearEmpleadoFreelance(
 					nombre, 
@@ -179,7 +182,8 @@ public class Controller {
 					correo, 
 					direccion, 
 					fechaIngreso, 
-					genero);
+					genero,
+					clientesCaptados);
 		
 		personal.agregarNuevoEmpleado(freelance);
 	}

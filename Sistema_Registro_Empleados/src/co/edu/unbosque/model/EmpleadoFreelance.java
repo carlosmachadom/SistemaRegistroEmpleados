@@ -5,13 +5,16 @@ public class EmpleadoFreelance extends Empleado {
 	protected int clientesCaptados;
 
 	public EmpleadoFreelance(String nombre, String apellido, String cedula, String fechaDeNacimiento, String telefono, String correo,
-			String direccion, String fechaIngreso, String genero) {
+			String direccion, String fechaIngreso, String genero, int clientesCaptados) {
 		
 		super(nombre, apellido, cedula, fechaDeNacimiento, telefono, correo, direccion, fechaIngreso, genero);
+		this.clientesCaptados = clientesCaptados;
 		this.salarioBase = 1200000;
+		
+		calcularBonoEspecifico();
 	}
 
-	public void calcularBonoPorClientesCaptados() {
+	public void calcularBonoEspecifico() {
 		long montoTotal = 0;
 		
 		if (this.clientesCaptados != 0) {

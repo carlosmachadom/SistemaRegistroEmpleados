@@ -32,7 +32,6 @@ public class Dashboard extends JPanel {
 		contenedor.setLayout(new BorderLayout());
 		contenedor.setPreferredSize(new Dimension(900, 500));
 		contenedor.setBorder(new EmptyBorder(0,0,0,0));
-		//contenedor.setBackground(Color.black);
 		
 		// Contenedor de los botones de selección y crear nuevo empleado
 		Box seccionBotones = Box.createHorizontalBox();
@@ -42,7 +41,7 @@ public class Dashboard extends JPanel {
 		dropDownListaEmpleados = new JComboBox<>(listas);
 		dropDownListaEmpleados.setActionCommand("listaEmpleadosDropdown");
 		crearNuevoEmpleado = new JButton("Crear Empleado");
-		crearNuevoEmpleado.setActionCommand("CrearNuevoEmpleado");
+		crearNuevoEmpleado.setActionCommand("FormularioCrearNuevoEmpleado");
 		
 		seccionBotones.add(dropDownListaEmpleados);
 		seccionBotones.add(Box.createHorizontalGlue());

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 import co.edu.unbosque.controllers.Controller;
 import co.edu.unbosque.model.EmpleadoFreelance;
@@ -29,6 +30,7 @@ public class UIAdapter implements ActionListener {
 	
 	// Formulario Crear Empleado
 	private FormularioCrearEmpleado formularioNuevoEmpleado;
+	private JButton botonEnviarDatosNuevoEmpleado;
 	
 	public UIAdapter() {
 		controlador = new Controller();
@@ -40,13 +42,21 @@ public class UIAdapter implements ActionListener {
 	}
 	
 	public void agregarListeners() {
+		// Componentes Generales
 		dashboard = vistaVentana.getLayoutDinamico().getDashboard();
+		formularioNuevoEmpleado = vistaVentana.getLayoutDinamico().getFormularioNuevoEmpleado();
 		
+		// Boton para desplegar ventana de formulario para crear un nuevo empleado
 		crearNuevoEmpleado = dashboard.getCrearNuevoEmpleado();
 		crearNuevoEmpleado.addActionListener(this);
 		
+		// Boton para desplegar La tabla según el tipo de empleado
 		seleccionarLista = dashboard.getDropDownListaEmpleados();
-		seleccionarLista.addActionListener(this);		
+		seleccionarLista.addActionListener(this);
+		
+		botonEnviarDatosNuevoEmpleado = formularioNuevoEmpleado.getBotonCrearNuevoEmpleado();
+		botonEnviarDatosNuevoEmpleado.addActionListener(this);
+		
 	}
 
 	@Override
@@ -60,19 +70,55 @@ public class UIAdapter implements ActionListener {
 		case "listaEmpleadosDropdown":
 			insertarTabla();
 			break;
-		case "CrearNuevoEmpleado":
+		case "FormularioCrearNuevoEmpleado":
 			vistaVentana.getLayoutDinamico().mostrarVista(c);
+			break;
+		case "enviarDatosNuevoEmpleado":
+			String tipoEmpleado = ""+formularioNuevoEmpleado.getTipoEmpleado().getSelectedItem();
+			if(formularioNuevoEmpleado.validarCampos()) {
+				crearNuevoEmpleado(tipoEmpleado);
+				formularioNuevoEmpleado.mostrarExito("Empleado creado con exito");
+				vistaVentana.getLayoutDinamico().mostrarVista("Dashboard");
+			} else {
+				this.formularioNuevoEmpleado.mostrarError("Corrige los datos del formulario.");			
+			}
 			break;
 		}
 	}
 	
-	public void crearNuevoEmpleado() {
-		
+	public void crearNuevoEmpleado(String tipoEmpleado) {	
+		String nombre = formularioNuevoEmpleado.getNombre();
+		String apellido = formularioNuevoEmpleado.getApellido();
+		String cedula = formularioNuevoEmpleado.getCedula();
+		String fechaNacimiento = formularioNuevoEmpleado.getFechaNacimiento();
+		String telefono = formularioNuevoEmpleado.getTelefono();
+		String correo = formularioNuevoEmpleado.getEmail();
+		String direccion = formularioNuevoEmpleado.getDireccion();
+		String fechaIngreso = formularioNuevoEmpleado.getFechaIngreso();
+		String genero = formularioNuevoEmpleado.getGenero();
+
+		if (tipoEmpleado.equals("Ingeniero Junior")) {
+			String nivel = formularioNuevoEmpleado.getNivel();
+			controlador.crearNuevoEmpleadoJunior(nombre, apellido, cedula, fechaNacimiento, telefono, correo, direccion, fechaIngreso, genero, convertirStringAEntero(nivel));
+		} else if(tipoEmpleado.equals("Ingeniero Senior")) {
+			String ventas = formularioNuevoEmpleado.getVentas();
+			controlador.crearNuevoEmpleadoSenior(nombre, apellido, cedula, fechaNacimiento, telefono, correo, direccion, fechaIngreso, genero, convertirStringAEntero(ventas));
+		} else if(tipoEmpleado.equals("Empleado Freelance")) {
+			String clientesCaptados = formularioNuevoEmpleado.getClientesCaptados();	
+			controlador.crearNuevoEmpleadoFreelance(nombre, apellido, cedula, fechaNacimiento, telefono, correo, direccion, fechaIngreso, genero, convertirStringAEntero(clientesCaptados));
+		} else if(tipoEmpleado.equals("Tecnico")) {
+			controlador.crearNuevoEmpleadoTecnico(nombre, apellido, cedula, fechaNacimiento, telefono, correo, direccion, fechaIngreso, genero);
+		}
 	}
 	
-	public void recibirDatosFormulario() {
-		
-	}
+	public int convertirStringAEntero(String cadena) {
+        try {
+            return Integer.parseInt(cadena);
+        } catch (NumberFormatException e) {
+            System.err.println("Error al convertir el String a entero: " + e.getMessage());
+            return 0;
+        }
+    }
 	
 	public void insertarTabla() {
 		tablaDashboard = dashboard.getTablaGeneral();

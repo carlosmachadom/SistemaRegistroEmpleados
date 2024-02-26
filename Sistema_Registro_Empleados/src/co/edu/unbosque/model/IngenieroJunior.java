@@ -7,6 +7,8 @@ public class IngenieroJunior extends EmpleadoFijo {
 			String direccion, String fechaIngreso, String genero, int nivel) {
 		super(nombre, apellido, cedula, fechaDeNacimiento, telefono, correo, direccion, fechaIngreso, genero);
 		this.nivel = nivel;
+		
+		calcularBonoEspecifico();
 	}
 	
 	public void ascender() {

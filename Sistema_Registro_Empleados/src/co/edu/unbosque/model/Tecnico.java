@@ -13,6 +13,7 @@ public class Tecnico extends EmpleadoFijo {
 		super(nombre, apellido, cedula, fechaDeNacimiento, telefono, correo, direccion, fechaIngreso, genero);
 		
 		calcularEdad();
+		calcularBonoEspecifico();
 	}
 	
 	public void calcularEdad() {

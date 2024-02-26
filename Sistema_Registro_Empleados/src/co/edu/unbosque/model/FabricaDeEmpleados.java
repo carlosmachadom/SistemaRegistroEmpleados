@@ -83,7 +83,8 @@ public class FabricaDeEmpleados {
 			String correo,
 			String direccion, 
 			String fechaIngreso, 
-			String genero) {
+			String genero,
+			int clientesCaptados) {
 		
 		return new EmpleadoFreelance(
 				nombre, 
@@ -94,6 +95,7 @@ public class FabricaDeEmpleados {
 				correo, 
 				direccion, 
 				fechaIngreso, 
-				genero);
+				genero, 
+				clientesCaptados);
 	}		
 }

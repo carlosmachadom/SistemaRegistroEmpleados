@@ -12,9 +12,11 @@ public abstract class EmpleadoFijo extends Empleado {
 		
 		super(nombre, apellido, cedula, fechaDeNacimiento, telefono, correo, direccion, fechaIngreso, genero);
 		this.salarioBase = 3000000;
+		
+		calcularBonoGeneral();
 	}
 
-	protected void calcularGeneral() {
+	protected void calcularBonoGeneral() {
 		int anosLaborados = 0;
 		long bono = 0;
 				

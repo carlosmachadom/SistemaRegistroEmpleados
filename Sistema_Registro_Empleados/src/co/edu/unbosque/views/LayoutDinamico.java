@@ -18,7 +18,7 @@ public class LayoutDinamico extends JPanel {
 		
 		
 		this.add(dashboard, "Dashboard");
-		this.add(formularioNuevoEmpleado, "CrearNuevoEmpleado");
+		this.add(formularioNuevoEmpleado, "FormularioCrearNuevoEmpleado");
 		mostrarVista("Dashboard");
 	}
 
@@ -28,5 +28,9 @@ public class LayoutDinamico extends JPanel {
 
 	public Dashboard getDashboard() {
 		return dashboard;
+	}
+
+	public FormularioCrearEmpleado getFormularioNuevoEmpleado() {
+		return formularioNuevoEmpleado;
 	}
 }
