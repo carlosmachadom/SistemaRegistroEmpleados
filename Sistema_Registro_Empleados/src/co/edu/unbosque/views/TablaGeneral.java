@@ -6,7 +6,9 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -59,19 +61,19 @@ public class TablaGeneral extends JPanel{
 		for (Object obj : lista) {
 	        if (obj instanceof Tecnico) {
 	            Tecnico tecnico = (Tecnico) obj;
-	            JPanel fila = obtenerFila(tecnico.getNombre(), tecnico.getApellido(), tecnico.getCedula(), tecnico.getTelefono(), tecnico.getFechaIngreso(), "" + tecnico.getSalarioBase());
+	            JPanel fila = obtenerFila(tecnico.getNombre(), tecnico.getApellido(), tecnico.getCedula(), tecnico.getTelefono(), tecnico.getFechaIngreso(), formatearPesosColombianos(tecnico.getSalarioBase()));
 	            contenido.add(fila);
 	        } else if (obj instanceof EmpleadoFreelance) {
 	            EmpleadoFreelance freelance = (EmpleadoFreelance) obj;
-	            JPanel fila = obtenerFila(freelance.getNombre(), freelance.getApellido(), freelance.getCedula(), freelance.getTelefono(), freelance.getFechaIngreso(), "" + freelance.getSalarioBase());
+	            JPanel fila = obtenerFila(freelance.getNombre(), freelance.getApellido(), freelance.getCedula(), freelance.getTelefono(), freelance.getFechaIngreso(), formatearPesosColombianos(freelance.getSalarioBase()));
 	            contenido.add(fila);
 	        } else if (obj instanceof IngenieroJunior) {
 	            IngenieroJunior junior = (IngenieroJunior) obj;
-	            JPanel fila = obtenerFila(junior.getNombre(), junior.getApellido(), junior.getCedula(), junior.getTelefono(), junior.getFechaIngreso(), "" + junior.getSalarioBase());
+	            JPanel fila = obtenerFila(junior.getNombre(), junior.getApellido(), junior.getCedula(), junior.getTelefono(), junior.getFechaIngreso(), formatearPesosColombianos(junior.getSalarioBase()));
 	            contenido.add(fila);
 	        } else if (obj instanceof IngenieroSenior) {
 	            IngenieroSenior senior = (IngenieroSenior) obj;
-	            JPanel fila = obtenerFila(senior.getNombre(), senior.getApellido(), senior.getCedula(), senior.getTelefono(), senior.getFechaIngreso(), "" + senior.getSalarioBase());
+	            JPanel fila = obtenerFila(senior.getNombre(), senior.getApellido(), senior.getCedula(), senior.getTelefono(), senior.getFechaIngreso(), formatearPesosColombianos(senior.getSalarioBase()));
 	            contenido.add(fila);
 	        }
 	    }
@@ -139,4 +141,12 @@ public class TablaGeneral extends JPanel{
 		
 		return seccion;
 	}
+	
+	public String formatearPesosColombianos(long cantidad) {
+        // Crear un objeto NumberFormat para el formato de moneda colombiana
+        NumberFormat formatoMoneda = NumberFormat.getCurrencyInstance(new Locale("es", "CO"));
+
+        // Formatear el número a pesos colombianos
+        return formatoMoneda.format(cantidad);
+    }
 }

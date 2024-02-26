@@ -26,54 +26,54 @@ public class Controller {
 				"Cra26#65-44",
 				"2021-08-02",
 				"M",
-				2);
+				6);
 		
 		// Empleados Senior
 		crearNuevoEmpleadoSenior(
 				"Juan", 
-				"Machado", 
+				"Cardenas", 
 				"1016473882", 
-				"1995-02-23", 
+				"1990-02-23", 
 				"3166727882", 
-				"mcdario0223@gmail.com", 
-				"Cra26#65-44",
-				"2021-08-02",
+				"juan@unbosque.edu.co", 
+				"Cra34#32-44",
+				"2020-06-14",
 				"M",
 				2);
 		
 		// Empleados Freelance
 		crearNuevoEmpleadoFreelance(
 				"Daniel", 
-				"Machado", 
-				"1016473882", 
-				"1995-02-23", 
+				"Martinez", 
+				"1016569882", 
+				"1997-04-23", 
 				"3166727882", 
-				"mcdario0223@gmail.com", 
+				"daniel@unbosque.edu.co", 
 				"Cra26#65-44",
-				"2021-08-02",
+				"2022-08-02",
 				"M",
 				2);
 		
 		crearNuevoEmpleadoFreelance(
 				"Amelia", 
-				"Machado", 
+				"Zarate", 
 				"1016473882", 
-				"1995-02-23", 
+				"1991-06-23", 
 				"3166727882", 
-				"mcdario0223@gmail.com", 
+				"amelia@unbosque.edu.co", 
 				"Cra26#65-44",
-				"2021-08-02",
+				"2023-04-02",
 				"M",
-				3);
+				1);
 		
 		// Empleados técnicos
 		crearNuevoEmpleadoTecnico(
 				"Laura", 
-				"Machado", 
+				"Morales", 
 				"1016473882", 
-				"1995-02-23", 
+				"2000-05-23", 
 				"3166727882", 
-				"mcdario0223@gmail.com", 
+				"laura@unbosque.edu.co", 
 				"Cra26#65-44",
 				"2021-08-02",
 				"M");
